@@ -12,7 +12,7 @@
     <?php
         require "admin/connect.php"; 
         if(isset($_SESSION['name'])){
-            echo "Xin chào " . $_SESSION['name'];?>
+            echo "Xin chào " . $_SESSION['name'];  ?>
             <br>
             <a href="signout.php">Đăng Xuất</a>
     <?php

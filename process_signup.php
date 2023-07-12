@@ -18,17 +18,19 @@ if($number_rows == 1){
     exit;
 }
 // insert information into database
-$sql = "insert into customers(name,email,phone,password)
-values ('$name','$email','$phone','$password')";
+$token = uniqid('user_',true) . "._" . time();
+$sql = "insert into customers(name,email,phone,password,token)
+values ('$name','$email','$phone','$password','$token')";
 $result = mysqli_query($connect,$sql);
 
 // select information from database by email
-$sql = "select count(*) from customers
+$sql = "select * from customers
 where email = '$email' ";
 $result = mysqli_query($connect,$sql);
-$id_rows = mysqli_fetch_array($result)['id'];
+$each = mysqli_fetch_array($result);
 $_SESSION["name"] = $name;
-$_SESSION["id"] = $id_rows;
+$_SESSION["id"] = $each['id'];
+setcookie("token",$token,time()+60*60*24*30);
 
 
 header('location:user.php?success=Dang nhap thanh cong');
