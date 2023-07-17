@@ -6,6 +6,7 @@ $name = $_POST['name'];
 $email = $_POST['email'];
 $password = $_POST['password'];
 $phone = $_POST['phone'];
+$address = $_POST['address'];
 // search email 
 $sql = "select count(*) from customers
 where email = '$email' or phone = '$phone' ";
@@ -19,8 +20,9 @@ if($number_rows == 1){
 }
 // insert information into database
 $token = uniqid('user_',true) . "._" . time();
-$sql = "insert into customers(name,email,phone,password,token)
-values ('$name','$email','$phone','$password','$token')";
+$sql = "insert into customers(name,email,phone,password,token,address)
+values ('$name','$email','$phone','$password','$token','$address')";
+
 $result = mysqli_query($connect,$sql);
 
 // select information from database by email

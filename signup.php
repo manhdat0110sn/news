@@ -28,6 +28,8 @@
         Số điện thoại:
         <input type="tel" name="phone" id="">
         <br>
+        Địa chỉ:
+        <input type="text" name="address" id="">
         <button type="submit">Đăng Kí</button>
     </form>
 </body>

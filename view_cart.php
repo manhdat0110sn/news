@@ -1,6 +1,14 @@
 <?php
 session_start();
-$result = $_SESSION['cart']; 
+if(empty($_SESSION['cart'])){
+    header("location: user.php");
+    exit();
+}else{
+    $result = $_SESSION['cart'];
+}
+
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,6 +28,7 @@ $result = $_SESSION['cart'];
         </tr>
         <tr>
             <?php
+        
         foreach ($result as $id => $each) {
             ?>
             <tr>
@@ -52,11 +61,30 @@ $result = $_SESSION['cart'];
                 foreach ($result as $id => $each) {
                     $total += $each['price'] * $each['quantity'];
                 }
-                echo $total;
+                echo $total . " VND";
                 ?>
             </td>
         </tr>
     </table>
+    <?php
+        $id = $_SESSION['id'];
+        require "admin/connect.php";
+        $sql = "select * from customers where id = '$id'";
+        $result = mysqli_query($connect, $sql);
+        $each = mysqli_fetch_array($result);
+    ?>
+    <form action="checkout.php" method="post">
+        Tên người nhận:
+        <input type="text" value="<?php echo $each['name'] ?>" name="name_receiver">
+        <br>
+        Địa chỉ:
+        <input type="text" value="<?php echo $each['address']?>" name="address_receiver" >
+        <br>
+        Số điện thoại:
+        <input type="text" value="<?php echo $each['phone'] ?>" name="phone_receiver">
+        <br>
+        <input type="submit" value="Đặt hàng">
+    </form>
     <a href="user.php">ve trang chu</a>
 </body>
 </html>
