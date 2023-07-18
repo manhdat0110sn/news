@@ -8,6 +8,7 @@
 </head>
 <body>
     <?php 
+        require "../check_admin.php";
         require '../connect.php';
         $sql = "select * from manufacturers";
         $result = mysqli_query($connect,$sql);

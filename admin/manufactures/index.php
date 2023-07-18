@@ -12,6 +12,7 @@
     <?php
     require '../menu.php';
     require '../connect.php';
+    require '../check_super_admin.php';
 
 
     $search = '';

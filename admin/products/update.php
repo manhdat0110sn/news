@@ -9,6 +9,7 @@
 <body>
     <?php 
         require '../connect.php';
+        require "../check_admin.php";
         $id = $_GET['id'];
 
         $sql_result = "select * from manufacturers";

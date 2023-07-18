@@ -10,7 +10,9 @@
 
 <body>
 
-    <?php if (isset($_GET['error'])) { ?>
+    <?php
+    require '../check_super_admin.php';
+    if (isset($_GET['error'])) { ?>
         <!-- code... -->
         <span style="color: red;">
             <?php echo $_GET['error'] ?>

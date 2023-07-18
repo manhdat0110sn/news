@@ -6,7 +6,12 @@
 </ul>
 <ul>
     <li>
-        <a href="../products">quản lý đơn hàng</a>
+        <a href="../products">quản lý san pham</a>
+    </li>
+</ul>
+<ul>
+    <li>
+        <a href="../orders">quản lý đơn hàng</a>
     </li>
 </ul>
 

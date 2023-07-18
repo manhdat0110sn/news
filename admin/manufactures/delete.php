@@ -1,6 +1,6 @@
 <?php
 require '../connect.php';
-
+require '../check_super_admin.php';
 if (!isset($_GET['id'])) {
     # code...
     header('location:index.php?error=Chưa truyền mã để xóa bài đăng');

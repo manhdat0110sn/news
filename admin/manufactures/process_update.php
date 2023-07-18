@@ -21,6 +21,7 @@ $address = $_POST['address'];
 $phone = $_POST['phone'];
 $photo = $_POST['photo'];
 require '../connect.php';
+require '../check_super_admin.php';
 
 $sql = "
 update manufacturers

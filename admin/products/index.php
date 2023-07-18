@@ -8,6 +8,7 @@
 </head>
 <body>
     <?php 
+        require "../check_admin.php";
         require '../connect.php';
         require '../menu.php';
         $sql = "SELECT 

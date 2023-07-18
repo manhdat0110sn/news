@@ -7,8 +7,12 @@
     <title>Document</title>
 </head>
 <body>
+    <h1>Đây là trang admin</h1>
     <?php
-        
+        require "../check_admin.php";
+        echo "welcome " . $_SESSION['name'];
+        require '../menu.php';
     ?>
+    <a href="../logout.php">Đăng Xuất</a>
 </body>
 </html>

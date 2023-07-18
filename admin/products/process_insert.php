@@ -1,5 +1,5 @@
 <?php
-
+require "../check_admin.php";
 require '../connect.php';
 
 $name = $_POST['name'];

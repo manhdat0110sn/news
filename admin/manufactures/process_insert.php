@@ -5,7 +5,7 @@ if (empty($_POST['name']) || empty($_POST['address']) || empty($_POST['phone']) 
     header('location:form_insert.php?error=Chưa nhập đầy đủ');
     exit;
 }
-
+require '../check_super_admin.php';
 $name = $_POST['name'];
 $address = $_POST['address'];
 $phone = $_POST['phone'];
