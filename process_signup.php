@@ -25,6 +25,11 @@ values ('$name','$email','$phone','$password','$token','$address')";
 
 $result = mysqli_query($connect,$sql);
 
+require "send_mail.php";
+$tittle = "Xác nhận đăng kí tài khoản";
+$content = "Xin chào $name, bạn đã đăng kí tài khoản thành công";
+send_Mail($email,$content,$tittle,$name);
+
 // select information from database by email
 $sql = "select * from customers
 where email = '$email' ";
