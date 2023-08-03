@@ -9,6 +9,7 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="user.css">
     <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 </head>
 
 <body>
@@ -46,14 +47,33 @@ session_start();
                 </div>
                 <div>
                     <a href="add_to_cart.php?id=<?php echo $each['id'] ?>">Thêm vào giỏ hàng</a>
+                    <button data-id="<?php echo $each['id'] ?>;" class="btn-add-to-card">Thêm vào giỏ hàng</button>
                 </div>
             </div>
         <?php
         }
         ?>
     </div>
+    
     <a href="view_cart.php">Tinh tien</a>
-
+    <script>
+        $(document).ready(function() {
+            $(".card").click(function() {
+                $(this).css("background-color", "yellow");
+                $.ajax({
+                    url: "add_to_cart.php",
+                    type: "get",
+                    data: {
+                        id: $(this).attr("id")
+                    },
+                    success: function(result) {
+                        alert(result);
+                    }
+                });
+            });
+        });
+        ;
+    </script>
 </body>
 
 </html>
